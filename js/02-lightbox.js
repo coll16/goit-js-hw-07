@@ -1,6 +1,6 @@
-import { galleryItems } from './gallery-items.js';
+import { galleryItems } from './gallery-items.js'
 
-const galleryRef = document.querySelector('.gallery');
+const galleryRef = document.querySelector('.gallery')
 
 const createGalleryItemsMarkup = ({ preview, original, description }) => {
   return `
@@ -9,21 +9,21 @@ const createGalleryItemsMarkup = ({ preview, original, description }) => {
         <img class="gallery__image" src="${preview}" alt="${description}"/>
       </a>
     </li>
-  `;
-};
+  `
+}
 
 const galleryItemsMarkup = galleryItems
   .map(item => createGalleryItemsMarkup(item))
-  .join('');
+  .join('')
 
-galleryRef.insertAdjacentHTML('afterbegin', galleryItemsMarkup);
+galleryRef.insertAdjacentHTML('afterbegin', galleryItemsMarkup)
 
-const images = galleryRef.querySelectorAll('.gallery__image');
+const images = galleryRef.querySelectorAll('.gallery__image')
 images.forEach(image => {
-  const altText = image.getAttribute('alt');
-  image.setAttribute('title', altText);
-});
+  const altText = image.getAttribute('alt')
+  image.setAttribute('title', altText)
+})
 const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'title',
-});
+})
 
